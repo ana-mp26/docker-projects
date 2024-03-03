@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  flask_app_1:
+    build:
+      context: ./flask_app_1
+    ports:
+      - "5000:5000"
+    networks:
+      - my_network
+
+  flask_app_2:
+    build:
+      context: ./flask_app_2
+    ports:
+      - "5001:5001"
+    networks:
+      - my_network
+
+networks:
+  my_network:
+

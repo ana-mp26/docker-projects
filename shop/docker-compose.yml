@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  flask-app:
+    build: ./product
+    ports:
+      - "5000:5000"
+    networks:
+      - my-network
+
+  php-frontend:
+    build: 
+      context: ./website
+      dockerfile: Dockerfile.php
+    ports:
+      - "80:80"
+    networks:
+      - my-network
+
+networks:
+  my-network:
