@@ -15,8 +15,8 @@ def index():
         rtt = time.time() - start_time
         measurements.append(rtt)
     avg_rtt = np.mean(measurements)
-    std_err = np.std(measurements) / np.sqrt(5)
-    confidence_interval = stats.t.interval(0.95, len(measurements)-1, loc=avg_rtt, scale=std_err)
+    std_err = np.std(measurements) / np.sqrt(100)
+    confidence_interval = stats.t.interval(0.90, len(measurements)-1, loc=avg_rtt, scale=std_err)
     
     response_data = {
         "response_from_app_1": response.text,
